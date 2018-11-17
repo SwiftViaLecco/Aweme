@@ -26,10 +26,10 @@ enum LeccoFunctionButtonType {
         switch self {
             case .Default:return LeccoFunctionButtonInfo("","","")
             case .Flip:return LeccoFunctionButtonInfo("icShootingFlip","icShootingFliped","翻转")
-            case .Speed:return LeccoFunctionButtonInfo("icShootingFlip","icShootingFliped","快满速")
+            case .Speed:return LeccoFunctionButtonInfo("icShootingSpeedPlanCOff","icShootingSpeedPlanCOn","快满速")
             case .Beautify:return LeccoFunctionButtonInfo("icShootingFlip","icShootingFliped","美化")
-            case .Delay:return LeccoFunctionButtonInfo("icShootingFlip","icShootingFliped","倒计时")
-            case .More:return LeccoFunctionButtonInfo("icShootingFlip","icShootingFliped","更多")
+            case .Delay:return LeccoFunctionButtonInfo("icShootingDelay","icShootingDelay","倒计时")
+            case .More:return LeccoFunctionButtonInfo("icShootingMore","icShootingMore","更多")
             case .Flash:return LeccoFunctionButtonInfo("icShootingFlip","icShootingFliped","闪光灯")
         }
     }
@@ -39,10 +39,13 @@ class LeccoFunctionButton: UIButton {
     
     var functionImageView:UIImageView = {
         let imageView = UIImageView.init(frame: CGRect.zero)
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     var functionTitleLabel:UILabel = {
         let label = UILabel.init(frame: CGRect.zero)
+        label.font = UIFont.leccoFont(size: 14)
+        label.textColor = UIColor.kffffff
         return label
     }()
     
@@ -67,15 +70,18 @@ class LeccoFunctionButton: UIButton {
         self.addSubview(self.functionImageView)
         self.addSubview(self.functionTitleLabel)
         self.functionImageView.snp.makeConstraints { (make) in
-            make.left.height.right.equalTo(self).offset(10)
+            make.left.equalTo(self).offset(10)
+            make.top.equalTo(self).offset(0)
+            make.right.equalTo(self).offset(-10)
             make.height.equalTo(self.functionImageView.snp.width)
         }
         self.functionTitleLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self.functionImageView.snp.centerX)
-            make.top.equalTo(self.functionImageView).offset(5)
+            make.top.equalTo(self.functionImageView.snp.bottom).offset(0)
         }
         
         self.funcType = type
+        self.isSelected = false
     }
     
     required init?(coder aDecoder: NSCoder) {

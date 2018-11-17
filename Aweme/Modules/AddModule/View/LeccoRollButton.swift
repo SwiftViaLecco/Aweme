@@ -10,12 +10,13 @@ import UIKit
 
 class LeccoRollButton: UIButton {
     
-    var rollImageView:UIImageView = {
+   open var rollImageView:UIImageView = {
         let imageView = UIImageView.init(frame: CGRect.zero)
         return imageView
     }()
-    var rollTitleLabel:UILabel = {
+   open var rollTitleLabel:UILabel = {
         let label = UILabel.init(frame: CGRect.zero)
+        label.textColor = UIColor.kffffff
         return label
     }()
     
@@ -24,7 +25,7 @@ class LeccoRollButton: UIButton {
         self.addSubview(self.rollImageView)
         self.addSubview(self.rollTitleLabel)
         self.rollTitleLabel.snp.makeConstraints { (make) in
-            make.centerX.equalTo(self.snp.centerX).offset(-10)
+            make.centerX.equalTo(self.snp.centerX).offset(10)
             make.centerY.equalTo(self.snp.centerY)
         }
         self.rollImageView.snp.makeConstraints { (make) in
