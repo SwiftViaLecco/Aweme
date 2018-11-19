@@ -25,7 +25,7 @@ enum LeccoFunctionButtonType {
     var rawValue: LeccoFunctionButtonInfo {
         switch self {
             case .Default:return LeccoFunctionButtonInfo("","","")
-            case .Flip:return LeccoFunctionButtonInfo("icShootingFlip","icShootingFliped","翻转")
+            case .Flip:return LeccoFunctionButtonInfo("icShootingFlip","icShootingFlipped","翻转")
             case .Speed:return LeccoFunctionButtonInfo("icShootingSpeedPlanCOff","icShootingSpeedPlanCOn","快满速")
             case .Beautify:return LeccoFunctionButtonInfo("icShootingFlip","icShootingFliped","美化")
             case .Delay:return LeccoFunctionButtonInfo("icShootingDelay","icShootingDelay","倒计时")
@@ -56,7 +56,6 @@ class LeccoFunctionButton: UIButton {
         }
         
         didSet {
-            print("changed from \(oldValue) to \(isSelected)")
             let buttonInfo = self.funcType.rawValue
             self.functionTitleLabel.text = buttonInfo.title
             self.functionImageView.image = UIImage(named: isSelected ? buttonInfo.selectedImage : buttonInfo.normalImage)

@@ -28,14 +28,6 @@ class LeccoShootButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        _ = self.rx.tap.subscribe(onNext: { [weak self] in
-            if self?.shootState == .Stop {
-                self?.shootState = .Shooting
-            } else {
-                self?.shootState = .Stop
-            }
-            
-        })
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -32,6 +32,7 @@ enum LeccoCaptureSessionPreset:NSInteger {
 }
 
 
+
 class LeccoCaptureSession:NSObject {
     
     var session:AVCaptureSession = AVCaptureSession()
@@ -50,6 +51,9 @@ class LeccoCaptureSession:NSObject {
     var audioDeviceInput:AVCaptureDeviceInput!
     var videoDeviceOutput:AVCaptureVideoDataOutput!
     var audioDeviceOutput:AVCaptureAudioDataOutput!
+    var videoConnection:AVCaptureConnection!
+    var audioConnection:AVCaptureConnection!
+    
     open var preViewLayer:AVCaptureVideoPreviewLayer!
     var preView:UIView! {
         didSet {
@@ -65,6 +69,48 @@ class LeccoCaptureSession:NSObject {
                 layer .addSublayer(self.preViewLayer)
             }
         }
+    }
+    
+    
+    
+    private var _captureDevicePosition:AVCaptureDevice.Position = .back
+    var captureDevicePosition:AVCaptureDevice.Position {
+        get {
+            return _captureDevicePosition
+        }
+        set {
+            self.changeDevicePropertySafety { (captureDevice) in
+                _captureDevicePosition = newValue
+                self.videoDevice = self.device(mediaType: AVMediaType.video, preferringPostion: _captureDevicePosition)
+                guard let newVideoInput = try? AVCaptureDeviceInput(device: videoDevice) else {
+                    print("change property failed:AVCaptureDeviceInput")
+                    return
+                }
+                self.session.removeInput(self.videoDeviceInput)
+                guard self.session.canAddInput(newVideoInput) else {
+                    print("init canAddOutput failed")
+                    self.session .removeInput(self.videoDeviceInput)
+                    return
+                }
+                self.videoDeviceInput = newVideoInput
+                self.session.addInput(self.videoDeviceInput)
+            }
+            
+        }
+    }
+    
+    
+    //获取所需要的设备对象
+    private func device(mediaType:AVMediaType, preferringPostion:AVCaptureDevice.Position) -> AVCaptureDevice! {
+        let devices = AVCaptureDevice.devices(for: mediaType)
+        var captureDevice = devices.first
+        for device in devices {
+            if device.position == preferringPostion {
+                captureDevice = device
+                break
+            }
+        }
+        return captureDevice
     }
     
     func startRunning() -> Void {
@@ -126,12 +172,12 @@ class LeccoCaptureSession:NSObject {
         }
         self.session.addOutput(self.videoDeviceOutput)
         //链接视频IO
-        let connection = self.videoDeviceOutput.connection(with: .video)
-        connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-        if connection?.isVideoStabilizationSupported ?? false {
-            connection?.preferredVideoStabilizationMode = AVCaptureVideoStabilizationMode.auto
+        self.videoConnection = self.videoDeviceOutput.connection(with: .video)
+        self.videoConnection?.videoOrientation = AVCaptureVideoOrientation.portrait
+        if self.videoConnection?.isVideoStabilizationSupported ?? false {
+            self.videoConnection?.preferredVideoStabilizationMode = AVCaptureVideoStabilizationMode.auto
         }
-        connection?.videoScaleAndCropFactor = connection?.videoMaxScaleAndCropFactor ?? 0
+        self.videoConnection?.videoScaleAndCropFactor = self.videoConnection?.videoMaxScaleAndCropFactor ?? 0
         
         //音频
         guard let _audioDevice = AVCaptureDevice.default(for: .audio) else {
@@ -152,14 +198,49 @@ class LeccoCaptureSession:NSObject {
             return
         }
         self.session.addOutput(self.audioDeviceOutput)
+        self.audioConnection = self.audioDeviceOutput.connection(with: .audio)
         let audioQueue:DispatchQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive)
         self.audioDeviceOutput.setSampleBufferDelegate(self, queue: audioQueue)
         
     }
     
+    func changeDevicePropertySafety(safetyBlock:(_ captionDevice:AVCaptureDevice) -> Void) -> Void {
+        let captionDevice = self.videoDeviceInput.device
+        guard let _ = try? captionDevice.lockForConfiguration() else {
+            print("call lockForConfiguration failed")
+            return
+        }
+        self.session.beginConfiguration()
+        safetyBlock(captionDevice)
+        captionDevice .unlockForConfiguration()
+        self.session .commitConfiguration()
+    }
+    
 }
 
 extension LeccoCaptureSession:AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate  {
+    
+  
+    
+    //MARK: AVCaptureVideoDataOutputSampleBufferDelegate & AVCaptureAudioDataOutputSampleBufferDelegate
+    func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        //only for video
+        
+    }
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        //video and audio
+        let formatDescription = CMSampleBufferGetFormatDescription(sampleBuffer)
+        if connection == self.videoConnection {
+        } else if connection == self.audioConnection {
+        }
+        
+    }
+    
+    
+    
+    
+    
     
     
     
