@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import AVFoundation
+import Photos
 
 class LeccoAddViewController: UIViewController {
     
@@ -70,6 +71,9 @@ class LeccoAddViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
         _capturePipeline = RosyWriterCapturePipeline(delegate: self, callbackQueue: DispatchQueue.main)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.applicationDidEnterBackground),
@@ -90,8 +94,6 @@ class LeccoAddViewController: UIViewController {
         // the willEnterForeground and didEnterBackground notifications are subsequently used to update _allowedToUseGPU
         _allowedToUseGPU = (UIApplication.shared.applicationState != .background)
         _capturePipeline.renderingEnabled = _allowedToUseGPU
-        
-        super.viewDidLoad()
         
         self.functionView = LeccoAddFunctionView(frame: CGRect.zero)
         self.functionView.delegate = self as LeccoAddFunctionViewDelegate
@@ -155,15 +157,22 @@ class LeccoAddViewController: UIViewController {
         return true
     }
     
-
 }
-
 
 
 extension LeccoAddViewController:RosyWriterCapturePipelineDelegate,LeccoAddFunctionViewDelegate {
     
     func leccoEndRecordButtonPressed(button: UIButton) {
         print("\(_capturePipeline.videoPathArray)")
+        LeccoVideoMerge.leccoJoinVideos(urls: _capturePipeline.videoPathArray) { (url) in
+            guard url != nil else {
+                return
+            }
+            print("success merge: \(String(describing: url))")
+            let editVideoVC = LeccoEditVideoController()
+            editVideoVC.videoPath = url
+            self.present(editVideoVC, animated: true, completion: nil)
+        }
     }
     
     func leccoCloseButtonPressed(button: LeccoCloseButton) {

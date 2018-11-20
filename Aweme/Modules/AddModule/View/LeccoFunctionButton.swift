@@ -44,7 +44,7 @@ class LeccoFunctionButton: UIButton {
     }()
     var functionTitleLabel:UILabel = {
         let label = UILabel.init(frame: CGRect.zero)
-        label.font = UIFont.leccoFont(size: 14)
+        label.font = UIFont.leccoFont(size: 12)
         label.textColor = UIColor.kffffff
         return label
     }()
@@ -76,7 +76,7 @@ class LeccoFunctionButton: UIButton {
         }
         self.functionTitleLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self.functionImageView.snp.centerX)
-            make.top.equalTo(self.functionImageView.snp.bottom).offset(0)
+            make.top.equalTo(self.functionImageView.snp.bottom).offset(-3)
         }
         
         self.funcType = type

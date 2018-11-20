@@ -49,20 +49,94 @@ class LeccoVideoMerge: NSObject {
         self.mergeVideo(assets)
     }
     
+    class func leccoJoinVideos(urls:[URL]?,handler: @escaping (_ joinedUrl:URL?) -> Void) -> Void {
+        self.compostionToAsset(comp: self.combVideos(urls: urls), handler: handler)
+    }
+    
+    class func compostionToAsset(comp:AVMutableComposition?,handler: @escaping (_ url:URL?) -> Void) ->Void {
+        guard (comp != nil) else {
+            handler(nil)
+            return
+        }
+        let url = URL(fileURLWithPath: NSString.path(withComponents: [NSTemporaryDirectory(), "MixAwemeAppVideo.MOV"]))
+        do {
+            try FileManager.default.removeItem(at: url)
+        } catch {
+        }
+        
+        //transforms
+        
+        guard let assetExporter = AVAssetExportSession(asset: comp!,presetName: AVAssetExportPresetHighestQuality) else {
+            handler(nil)
+            return
+        }
+        assetExporter.outputURL = url as URL
+        assetExporter.outputFileType = AVFileType.mov
+        assetExporter.shouldOptimizeForNetworkUse = true
+        
+        //do the export
+        assetExporter.exportAsynchronously {
+            switch assetExporter.status {
+            case .unknown:
+                print("unknown")
+            case .waiting:
+                print("waiting")
+            case .exporting:
+                print("exporting")
+            case .completed:
+                handler(url)
+            case .failed:
+                print(assetExporter.error?.localizedDescription ?? "")
+                handler(nil)
+            case .cancelled:
+                 handler(nil)
+            }
+            
+        }
+    }
+    
+    class func combVideos(urls:[URL]?) -> AVMutableComposition? {
+        if urls == nil || urls?.count == 0 {
+            return nil
+        }
+        let composition = AVMutableComposition()
+        let videoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
+        let audioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+//        var videoTrackArray:[AVAssetTrack] = []
+//        var audioTrackArray:[AVAssetTrack] = []
+//        var timeArray:[NSValue] = []
+        for (_,url) in urls!.enumerated() {
+            let asset = AVAsset(url: url)
+            let timeRange = CMTimeRange(start: CMTime.zero, end: asset.duration)
+//            timeArray.append(NSValue(timeRange: timeRange))
+            let video = asset.tracks(withMediaType: .video).first!
+            let audio = asset.tracks(withMediaType: .audio).first!
+//            videoTrackArray.append(asset.tracks(withMediaType: .video).first!)
+//            audioTrackArray.append(asset.tracks(withMediaType: .audio).first!)
+            do {
+                videoTrack?.preferredTransform = video.preferredTransform
+                try videoTrack?.insertTimeRange(timeRange, of: video, at: CMTime.invalid)
+                try audioTrack?.insertTimeRange(timeRange, of: audio, at: CMTime.invalid)
+            } catch {
+                print("\(error)")
+            }
+        }
+        //视频旋转
+//        let tranoform = videoTrack?.preferredTransform
+//        let rotation = CGAffineTransform(rotationAngle: 2 * .pi)
+//        videoTrack?.preferredTransform = rotation
+        return composition
+    }
+    
     func mergeVideo(_ assetsArray:[AVAsset]){
         
         let mainComposition = AVMutableVideoComposition()
         let mixComposition = AVMutableComposition()
-        
         let mainInstruction = AVMutableVideoCompositionInstruction()
         var allVideoInstruction = [AVMutableVideoCompositionLayerInstruction]()
-        
         var startDuration: CMTime = CMTime.zero
-        //var copyOfAssetsArray = assetsArray
-        
         for i in 0..<assetsArray.count {
             let currentAsset:AVAsset = assetsArray[i]
-            
             guard let currentTrack = mixComposition.addMutableTrack(withMediaType: AVMediaType.video,
                                                                     preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
                 else {   return  }
@@ -132,7 +206,6 @@ class LeccoVideoMerge: NSObject {
         
         let url = NSURL(fileURLWithPath: savePath)
         
-        
         guard let assetExporter = AVAssetExportSession(asset: mixComposition,presetName: AVAssetExportPresetHighestQuality) else { return }
         
         assetExporter.outputURL = url as URL
@@ -190,7 +263,26 @@ class LeccoVideoMerge: NSObject {
     
     func orientationFromTransform(transform: CGAffineTransform) -> (orientation: UIImage.Orientation, isPortrait: Bool){
         var assetOrientation = UIImage.Orientation.up
-        
+        var isPortrait = false
+        if transform.a == 0 && transform.b == 1.0 && transform.c == -1.0 && transform.d == 0 {
+            assetOrientation = .right
+            
+            isPortrait = true
+        } else if transform.a == 0 && transform.b == -1.0 && transform.c == 1.0 && transform.d == 0 {
+            assetOrientation = .left
+            
+            isPortrait = true
+        } else if transform.a == 1.0 && transform.b == 0 && transform.c == 0 && transform.d == 1.0 {
+            assetOrientation = .up
+            
+        } else if transform.a == -1.0 && transform.b == 0 && transform.c == 0 && transform.d == -1.0 {
+            assetOrientation = .down
+        }
+        return (assetOrientation, isPortrait)
+    }
+    
+    class func orientationFromTransform(transform: CGAffineTransform) -> (orientation: UIImage.Orientation, isPortrait: Bool){
+        var assetOrientation = UIImage.Orientation.up
         var isPortrait = false
         if transform.a == 0 && transform.b == 1.0 && transform.c == -1.0 && transform.d == 0 {
             assetOrientation = .right

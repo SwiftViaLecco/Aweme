@@ -95,7 +95,6 @@ class MovieRecorder: NSObject {
     
     //MARK: -
     //MARK: API
-    
     // delegate is weak referenced
     init(url: URL, delegate: MovieRecorderDelegate, callbackQueue queue: DispatchQueue) {
         

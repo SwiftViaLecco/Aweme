@@ -69,7 +69,7 @@ class LeccoAddFunctionView: UIView {
         
         self.progressView.snp.makeConstraints { (make) in
             make.left.equalTo(self).offset(10)
-            make.top.equalTo(self).offset(kStatusBarHeight)
+            make.top.equalTo(self).offset(kStatusBarHeight-15)
             make.right.equalTo(self).offset(-10)
             make.height.equalTo(5)
         }
@@ -88,7 +88,7 @@ class LeccoAddFunctionView: UIView {
         
         self.filpButton.snp.makeConstraints { (make) in
             make.right.equalTo(self).offset(0)
-            make.centerY.equalTo(self.closeButton.snp.centerY)
+            make.topMargin.equalTo(self.closeButton.snp.topMargin).offset(0)
             make.size.equalTo(CGSize(width: 60, height: 60))
         }
         self.speedButton.snp.makeConstraints { (make) in

@@ -133,13 +133,13 @@ class RosyWriterCapturePipeline: NSObject, AVCaptureAudioDataOutputSampleBufferD
     func getVideoPath() -> URL {
         var count = self.videoPathArray.count
         count = count + 1
-        let path =  URL(fileURLWithPath: NSString.path(withComponents: [NSTemporaryDirectory(), "AwemeApp/Movide\(count).MOV"]))
+        let path =  URL(fileURLWithPath: NSString.path(withComponents: [NSTemporaryDirectory(), "AwemeAppVideo\(count).MOV"]))
         return path
     }
     
     init(delegate: RosyWriterCapturePipelineDelegate, callbackQueue queue: DispatchQueue) {
         recordingOrientation = .portrait
-        _recordingURL = URL(fileURLWithPath: NSString.path(withComponents: [NSTemporaryDirectory(), "AwemeApp/Movide1.MOV"]))
+        _recordingURL = URL(fileURLWithPath: NSString.path(withComponents: [NSTemporaryDirectory(), "AwemeAppVideo1.MOV"]))
         _sessionQueue = DispatchQueue(label: "com.apple.sample.capturepipeline.session", attributes: [])
         // In a multi-threaded producer consumer system it's generally a good idea to make sure that producers do not get starved of CPU time by their consumers.
         // In this app we start with VideoDataOutput frames on a high priority queue, and downstream consumers use default priority queues.
@@ -221,7 +221,6 @@ class RosyWriterCapturePipeline: NSObject, AVCaptureAudioDataOutputSampleBufferD
             self.applicationWillEnterForeground()
         }
         
-        #if RECORD_AUDIO
             /* Audio */
             let audioDevice = AVCaptureDevice.default(for: .audio)!
             let audioIn = try! AVCaptureDeviceInput(device: audioDevice)
@@ -238,7 +237,6 @@ class RosyWriterCapturePipeline: NSObject, AVCaptureAudioDataOutputSampleBufferD
                 _captureSession!.addOutput(audioOut)
             }
             _audioConnection = audioOut.connection(with: AVMediaType.audio)
-        #endif // RECORD_AUDIO
         
         /* Video */
         guard let videoDevice = AVCaptureDevice.default(for: AVMediaType.video) else {
@@ -306,9 +304,7 @@ class RosyWriterCapturePipeline: NSObject, AVCaptureAudioDataOutputSampleBufferD
         }
         
         // Get the recommended compression settings after configuring the session/device.
-        #if RECORD_AUDIO
         _audioCompressionSettings = audioOut.recommendedAudioSettingsForAssetWriter(writingTo: AVFileType.mov) as! [String: Any]
-        #endif
         _videoCompressionSettings = videoOut.recommendedVideoSettingsForAssetWriter(writingTo: AVFileType.mov)!
         
         _videoBufferOrientation = _videoConnection!.videoOrientation
@@ -580,9 +576,7 @@ class RosyWriterCapturePipeline: NSObject, AVCaptureAudioDataOutputSampleBufferD
         let callbackQueue = DispatchQueue(label: "com.apple.sample.capturepipeline.recordercallback", attributes: []); // guarantee ordering of callbacks with a serial queue
         let recorder = MovieRecorder(url: _recordingURL, delegate: self, callbackQueue: callbackQueue)
         
-        #if RECORD_AUDIO
-            recorder.addAudioTrackWithSourceFormatDescription(self.outputAudioFormatDescription!, settings: _audioCompressionSettings)
-        #endif // RECORD_AUDIO
+        recorder.addAudioTrackWithSourceFormatDescription(self.outputAudioFormatDescription!, settings: _audioCompressionSettings)
         
         // Front camera recording shouldn't be mirrored
         let videoTransform = self.transformFromVideoBufferOrientationToOrientation(self.recordingOrientation, withAutoMirroring: false)
