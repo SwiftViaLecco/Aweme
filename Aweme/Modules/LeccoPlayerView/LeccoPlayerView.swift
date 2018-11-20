@@ -25,11 +25,23 @@ class LeccoPlayerView: UIView {
         super.init(frame: frame)
         self.layer.insertSublayer(self.playerLayer, at: 0)
         self.player.play()
+        
+        
+    }
+    
+    
+    internal func executeClosureOnMainQueueIfNecessary(withClosure closure: @escaping () -> Void) {
+        if Thread.isMainThread {
+            closure()
+        } else {
+            DispatchQueue.main.async(execute: closure)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     
     
 

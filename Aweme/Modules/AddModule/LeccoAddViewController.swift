@@ -165,13 +165,19 @@ extension LeccoAddViewController:RosyWriterCapturePipelineDelegate,LeccoAddFunct
     func leccoEndRecordButtonPressed(button: UIButton) {
         print("\(_capturePipeline.videoPathArray)")
         LeccoVideoMerge.leccoJoinVideos(urls: _capturePipeline.videoPathArray) { (url) in
-            guard url != nil else {
-                return
-            }
-            print("success merge: \(String(describing: url))")
-            let editVideoVC = LeccoEditVideoController()
-            editVideoVC.videoPath = url
-            self.present(editVideoVC, animated: true, completion: nil)
+            
+            DispatchQueue.main.sync(execute: {
+                guard url != nil else {
+                    return
+                }
+                print("success merge: \(String(describing: url))")
+                
+                let editVideoVC = LeccoEditVideoController()
+                editVideoVC.videoPath = url
+                self.present(editVideoVC, animated: true, completion: nil)
+            })
+            
+          
         }
     }
     
