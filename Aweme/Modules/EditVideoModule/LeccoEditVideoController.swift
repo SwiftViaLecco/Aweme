@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class LeccoEditVideoController: UIViewController {
+class LeccoEditVideoController: LeccoBaseViewController {
     
     var videoPath:URL!
     var leccoPlayerView:LeccoPlayerView!

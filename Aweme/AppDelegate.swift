@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SHFullscreenPopGestureSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        SHFullscreenPopGesture.configure()
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = RootViewController()
+        self.window?.rootViewController = LeccoTabBarController()
         self.window?.makeKeyAndVisible()
         return true
     }

@@ -24,6 +24,8 @@ enum LeccoColor:String {
     case kf8f8f8 = "f8f8f8"
     case kb9bec5 = "b9bec5"  //禁用状态
     case kfb3159 = "FB3159"  //禁用状态
+    case k161824 = "161824"
+    
     
 }
 
@@ -46,6 +48,7 @@ extension UIColor {
     public static var kf8f8f8:UIColor = UIColor(hexString: LeccoColor.kf8f8f8.rawValue)
     public static var kb9bec5:UIColor = UIColor(hexString: LeccoColor.kb9bec5.rawValue)
     public static var kfb3159:UIColor = UIColor(hexString: LeccoColor.kfb3159.rawValue)
+    public static var k161824:UIColor = UIColor(hexString: LeccoColor.k161824.rawValue)
     
     //生成纯色图片
     func imageFromColor(_ size:CGSize) -> UIImage? {

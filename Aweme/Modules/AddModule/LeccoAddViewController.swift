@@ -11,7 +11,7 @@ import RxCocoa
 import AVFoundation
 import Photos
 
-class LeccoAddViewController: UIViewController {
+class LeccoAddViewController: LeccoBaseViewController {
     
     var functionView:LeccoAddFunctionView!
     private var _previewView: OpenGLPixelBufferView?
