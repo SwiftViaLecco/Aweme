@@ -25,6 +25,7 @@
 		9B50652B21A2CE2400403C85 /* LeccoVideoMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B50652A21A2CE2300403C85 /* LeccoVideoMerge.swift */; };
 		9B50652E21A3CFCF00403C85 /* LeccoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B50652D21A3CFCF00403C85 /* LeccoPlayerView.swift */; };
 		9B50653121A3D3DB00403C85 /* LeccoEditVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B50653021A3D3DB00403C85 /* LeccoEditVideoController.swift */; };
+		9B79790721A500FA00B46F50 /* LeccoRecordSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79790621A500FA00B46F50 /* LeccoRecordSegmentView.swift */; };
 		9BD727A6219EA2B400C0C778 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD727A5219EA2B400C0C778 /* AppDelegate.swift */; };
 		9BD727AD219EA2B700C0C778 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD727AC219EA2B700C0C778 /* Assets.xcassets */; };
 		9BD727B0219EA2B700C0C778 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD727AE219EA2B700C0C778 /* LaunchScreen.storyboard */; };
@@ -63,6 +64,7 @@
 		9B50652A21A2CE2300403C85 /* LeccoVideoMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoVideoMerge.swift; sourceTree = "<group>"; };
 		9B50652D21A3CFCF00403C85 /* LeccoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoPlayerView.swift; sourceTree = "<group>"; };
 		9B50653021A3D3DB00403C85 /* LeccoEditVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoEditVideoController.swift; sourceTree = "<group>"; };
+		9B79790621A500FA00B46F50 /* LeccoRecordSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoRecordSegmentView.swift; sourceTree = "<group>"; };
 		9BD727A2219EA2B400C0C778 /* Aweme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aweme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD727A5219EA2B400C0C778 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD727AC219EA2B700C0C778 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				9BD727EF219EB34C00C0C778 /* LeccoRollButton.swift */,
 				9BD727F1219EB48D00C0C778 /* LeccoProgressView.swift */,
 				62D483FA21A01E100030507B /* LeccoShootButton.swift */,
+				9B79790621A500FA00B46F50 /* LeccoRecordSegmentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				9B50652421A28CDB00403C85 /* ShaderUtilities.swift in Sources */,
 				9B50651D21A28C8C00403C85 /* FourCharCode+StringLiteralConvertible.swift in Sources */,
 				9BD727DB219EA5F000C0C778 /* LeccoFont.swift in Sources */,
+				9B79790721A500FA00B46F50 /* LeccoRecordSegmentView.swift in Sources */,
 				9B50653121A3D3DB00403C85 /* LeccoEditVideoController.swift in Sources */,
 				9B50652121A28CB700403C85 /* MovieRecorder.swift in Sources */,
 				9B50651221A28C6100403C85 /* RosyWriterRenderer.swift in Sources */,

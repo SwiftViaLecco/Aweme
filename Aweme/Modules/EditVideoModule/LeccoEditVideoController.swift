@@ -23,12 +23,6 @@ class LeccoEditVideoController: UIViewController {
         super.viewDidLoad()
         self.leccoPlayerView = LeccoPlayerView.init(frame: self.view.bounds, url: self.videoPath)
         self.view.addSubview(self.leccoPlayerView)
-         NotificationCenter.default.addObserver(self, selector: #selector(self.playerItemDidPlayToEndTime(_:)), name: .AVPlayerItemDidPlayToEndTime, object: self.leccoPlayerView.player.currentItem)
-    }
-    
-    @objc internal func playerItemDidPlayToEndTime(_ aNotification: Notification) {
-            self.leccoPlayerView.player.seek(to: CMTime.zero)
-            self.leccoPlayerView.player.play()
     }
     
     

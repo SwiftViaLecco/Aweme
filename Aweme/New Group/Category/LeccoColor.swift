@@ -23,6 +23,8 @@ enum LeccoColor:String {
     case kf4f4f4 = "f4f4f4"
     case kf8f8f8 = "f8f8f8"
     case kb9bec5 = "b9bec5"  //禁用状态
+    case kfb3159 = "FB3159"  //禁用状态
+    
 }
 
 struct GradientPoint {
@@ -43,6 +45,7 @@ extension UIColor {
     public static var kf4f4f4:UIColor = UIColor(hexString: LeccoColor.kf4f4f4.rawValue)
     public static var kf8f8f8:UIColor = UIColor(hexString: LeccoColor.kf8f8f8.rawValue)
     public static var kb9bec5:UIColor = UIColor(hexString: LeccoColor.kb9bec5.rawValue)
+    public static var kfb3159:UIColor = UIColor(hexString: LeccoColor.kfb3159.rawValue)
     
     //生成纯色图片
     func imageFromColor(_ size:CGSize) -> UIImage? {

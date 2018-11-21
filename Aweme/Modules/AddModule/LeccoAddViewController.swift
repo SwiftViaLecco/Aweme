@@ -198,10 +198,19 @@ extension LeccoAddViewController:RosyWriterCapturePipelineDelegate,LeccoAddFunct
         case .Stop:
             button.shootState = .Shooting
             self.recordingStartOrStop()
+            self.functionView.functionViewType = .recording
         case .Shooting:
             button.shootState = .Stop
             self.recordingStartOrStop()
+            if _capturePipeline.videoPathArray.count > 0 {
+                self.functionView.functionViewType = .pause
+            } else {
+                self.functionView.functionViewType = .start
+            }
         }
+        
+       
+        
     }
     
     func capturePipeline(_ capturePipeline: RosyWriterCapturePipeline, didStopRunningWithError error: Error) {

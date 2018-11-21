@@ -19,7 +19,33 @@ protocol LeccoAddFunctionViewDelegate {
     func leccoEndRecordButtonPressed(button:UIButton) -> Void
 }
 
+enum LeccoAddFunctionViewType {
+    case start,recording,pause
+}
+
 class LeccoAddFunctionView: UIView {
+    
+    var functionViewType:LeccoAddFunctionViewType = .start {
+        didSet {
+            switch functionViewType {
+            case .start:
+                self.propButton.isHidden = false
+                self.mediaButton.isHidden = false
+                self.deleteButton.isHidden = true
+                self.endRecordButton.isHidden = true
+            case .recording:
+                self.propButton.isHidden = true
+                self.mediaButton.isHidden = true
+                self.deleteButton.isHidden = true
+                self.endRecordButton.isHidden = true
+            case .pause:
+                self.propButton.isHidden = true
+                self.mediaButton.isHidden = true
+                self.deleteButton.isHidden = false
+                self.endRecordButton.isHidden = false
+            }
+        }
+    }
     
     var delegate: LeccoAddFunctionViewDelegate?
    
@@ -42,14 +68,34 @@ class LeccoAddFunctionView: UIView {
     //more
     var moreButton = LeccoFunctionButton(frame: CGRect.zero, type: .More)
     
+    
     //shootbutton
     var shootButton = LeccoShootButton()
+    //start
+    // 媒体
+    var mediaButton = LeccoFunctionButton(frame: CGRect.zero, type: .Media)
+    //道具
+    var propButton = LeccoFunctionButton(frame: CGRect.zero, type: .Prop)
+    
+    //recording
+    var deleteButton:UIButton = {
+       let button = UIButton(frame: CGRect.zero)
+        button.setImage(UIImage(named: "icShootingDelete"), for: .normal)
+        return button
+    }()
     
     var endRecordButton:UIButton = {
-        let endButton = UIButton()
-        endButton.setImage(UIImage(named: "commentRepostSelectedDark"), for: .normal)
-        return endButton
+        let button = UIButton(frame: CGRect.zero)
+        button.setImage(UIImage(named: "icon_nextstep"), for: .normal)
+        button.layer.cornerRadius = 25.0
+        button.backgroundColor = UIColor.kfb3159
+        return button
     }()
+    
+    
+    var recordSegmentView:LeccoRecordSegmentView = LeccoRecordSegmentView(frame: CGRect.zero)
+    
+   
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,8 +109,17 @@ class LeccoAddFunctionView: UIView {
         self.addSubview(self.beautifyButton)
         self.addSubview(self.delayButton)
         self.addSubview(self.moreButton)
+        
+        self.addSubview(self.recordSegmentView)
         self.addSubview(self.shootButton)
+
+        self.addSubview(self.propButton)
+        self.addSubview(self.mediaButton)
+        
         self.addSubview(self.endRecordButton)
+        self.addSubview(self.deleteButton)
+        
+        
         self.shootButton.shootState = .Stop
         
         self.progressView.snp.makeConstraints { (make) in
@@ -112,18 +167,45 @@ class LeccoAddFunctionView: UIView {
             make.size.equalTo(self.filpButton.snp.size)
         }
         
+        self.recordSegmentView.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self).offset(0)
+            make.bottom.equalTo(self).offset(-(kTabbarSafeHight))
+            make.height.equalTo(50)
+        }
+        
         self.shootButton.snp.makeConstraints { (make) in
-            make.bottom.equalTo(self).offset(-(kTabbarHeight+10))
+            make.bottom.equalTo(self.recordSegmentView.snp.top).offset(0)
             make.centerX.equalTo(self).offset(0)
-            make.size.equalTo(CGSize(width: 100, height: 100))
+            make.size.equalTo(CGSize(width: 80, height: 80))
+        }
+        
+        //start
+        self.propButton.snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.shootButton)
+            make.size.equalTo(CGSize(width: 60, height: 60))
+            make.right.equalTo(self.shootButton.snp.left).offset(-25)
+            
+        }
+        
+        //start
+        self.mediaButton.snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.shootButton)
+            make.left.equalTo(self.shootButton.snp.right).offset(25)
+            make.size.equalTo(self.propButton.snp.size)
+        }
+        
+        //recording
+        self.deleteButton.snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.shootButton)
+            make.left.equalTo(self.shootButton.snp.right).offset(10)
+            make.size.equalTo(CGSize(width: 50, height: 50))
         }
         
         self.endRecordButton.snp.makeConstraints { (make) in
             make.centerY.equalTo(self.shootButton)
-            make.left.equalTo(self.shootButton.snp.right).offset(10)
-            make.size.equalTo(CGSize(width: 44, height: 44))
+            make.left.equalTo(self.deleteButton.snp.right).offset(10)
+            make.size.equalTo(CGSize(width: 50, height: 50))
         }
-        
         
         self.closeButton.rx.tap.subscribe({ [weak self] _ in
             self?.delegate?.leccoCloseButtonPressed(button: (self?.closeButton)!)
@@ -161,6 +243,13 @@ class LeccoAddFunctionView: UIView {
         self.endRecordButton.rx.tap.subscribe({ [weak self] _ in
             self?.delegate?.leccoEndRecordButtonPressed(button: (self?.endRecordButton)!)
         }).disposed(by: disposeBag)
+        
+        
+        //init
+        defer {
+           self.functionViewType = .start
+        }
+        
         
     }
     

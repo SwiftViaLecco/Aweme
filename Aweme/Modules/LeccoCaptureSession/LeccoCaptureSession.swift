@@ -53,7 +53,6 @@ class LeccoCaptureSession:NSObject {
     var audioDeviceOutput:AVCaptureAudioDataOutput!
     var videoConnection:AVCaptureConnection!
     var audioConnection:AVCaptureConnection!
-    
     open var preViewLayer:AVCaptureVideoPreviewLayer!
     var preView:UIView! {
         didSet {

@@ -21,16 +21,18 @@ struct LeccoFunctionButtonInfo {
 }
 
 enum LeccoFunctionButtonType {
-    case Flip,Speed,Beautify,Delay,More,Flash,Default
+    case Flip,Speed,Beautify,Delay,More,Flash,Default,Prop,Media
     var rawValue: LeccoFunctionButtonInfo {
         switch self {
             case .Default:return LeccoFunctionButtonInfo("","","")
             case .Flip:return LeccoFunctionButtonInfo("icShootingFlip","icShootingFlipped","翻转")
             case .Speed:return LeccoFunctionButtonInfo("icShootingSpeedPlanCOff","icShootingSpeedPlanCOn","快满速")
-            case .Beautify:return LeccoFunctionButtonInfo("icShootingFlip","icShootingFliped","美化")
+            case .Beautify:return LeccoFunctionButtonInfo("icBeautyFaceLift","icBeautyFaceLift","美化")
             case .Delay:return LeccoFunctionButtonInfo("icShootingDelay","icShootingDelay","倒计时")
             case .More:return LeccoFunctionButtonInfo("icShootingMore","icShootingMore","更多")
-            case .Flash:return LeccoFunctionButtonInfo("icShootingFlip","icShootingFliped","闪光灯")
+            case .Flash:return LeccoFunctionButtonInfo("icShootingLightingAuto","icShootingLightingAuto","闪光灯")
+            case .Prop:return LeccoFunctionButtonInfo("iconFeedSticker","iconFeedSticker","道具")
+            case .Media:return LeccoFunctionButtonInfo("icImChoosePhoto_selected","icImChoosePhoto_selected","上传")
         }
     }
 }

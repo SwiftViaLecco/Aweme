@@ -26,9 +26,14 @@ class LeccoPlayerView: UIView {
         self.layer.insertSublayer(self.playerLayer, at: 0)
         self.player.play()
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.playerItemDidPlayToEndTime(_:)), name: .AVPlayerItemDidPlayToEndTime, object: self.player.currentItem)
     }
     
+    @objc internal func playerItemDidPlayToEndTime(_ aNotification: Notification) {
+        self.player.pause()
+        self.player.seek(to: CMTime.zero)
+        self.player.play()
+    }
     
     internal func executeClosureOnMainQueueIfNecessary(withClosure closure: @escaping () -> Void) {
         if Thread.isMainThread {
