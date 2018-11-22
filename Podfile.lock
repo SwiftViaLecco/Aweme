@@ -1,8 +1,5 @@
 PODS:
   - Alamofire (4.7.3)
-  - Alamofire-SwiftyJSON (3.0.0):
-    - Alamofire (~> 4.5)
-    - SwiftyJSON (~> 4.0.0)
   - Bugly (2.5.0)
   - Charts (3.2.1):
     - Charts/Core (= 3.2.1)
@@ -18,6 +15,30 @@ PODS:
   - JPush (3.1.1.1):
     - JCore (~> 1.2.5)
   - Kingfisher (4.10.1)
+  - libwebp (1.0.0):
+    - libwebp/core (= 1.0.0)
+    - libwebp/dec (= 1.0.0)
+    - libwebp/demux (= 1.0.0)
+    - libwebp/dsp (= 1.0.0)
+    - libwebp/enc (= 1.0.0)
+    - libwebp/mux (= 1.0.0)
+    - libwebp/utils (= 1.0.0)
+    - libwebp/webp (= 1.0.0)
+  - libwebp/core (1.0.0):
+    - libwebp/webp
+  - libwebp/dec (1.0.0):
+    - libwebp/core
+  - libwebp/demux (1.0.0):
+    - libwebp/core
+  - libwebp/dsp (1.0.0):
+    - libwebp/core
+  - libwebp/enc (1.0.0):
+    - libwebp/core
+  - libwebp/mux (1.0.0):
+    - libwebp/core
+  - libwebp/utils (1.0.0):
+    - libwebp/core
+  - libwebp/webp (1.0.0)
   - PagingKit (1.7.0)
   - RAMAnimatedTabBarController (4.0.1)
   - RxAtomic (4.4.0)
@@ -32,12 +53,12 @@ PODS:
   - SHFullscreenPopGestureSwift (1.2.1)
   - SkeletonView (1.4.1)
   - SnapKit (4.2.0)
-  - SwiftyJSON (4.0.0)
+  - Starscream (3.0.6)
   - URLNavigator (2.1.0)
   - WKWebViewJavascriptBridge (1.1.0)
 
 DEPENDENCIES:
-  - Alamofire-SwiftyJSON
+  - Alamofire
   - Bugly
   - Charts
   - CircleProgressView
@@ -49,6 +70,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - JPush
   - Kingfisher
+  - libwebp
   - PagingKit
   - RAMAnimatedTabBarController
   - RxCocoa
@@ -58,13 +80,13 @@ DEPENDENCIES:
   - SHFullscreenPopGestureSwift
   - SkeletonView
   - SnapKit
+  - Starscream
   - URLNavigator
   - WKWebViewJavascriptBridge
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - Alamofire-SwiftyJSON
     - Bugly
     - Charts
     - CircleProgressView
@@ -77,6 +99,7 @@ SPEC REPOS:
     - JCore
     - JPush
     - Kingfisher
+    - libwebp
     - PagingKit
     - RAMAnimatedTabBarController
     - RxAtomic
@@ -87,13 +110,12 @@ SPEC REPOS:
     - SHFullscreenPopGestureSwift
     - SkeletonView
     - SnapKit
-    - SwiftyJSON
+    - Starscream
     - URLNavigator
     - WKWebViewJavascriptBridge
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  Alamofire-SwiftyJSON: 2b3649d57dc7bb2880fb8b86f8bb969397666916
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   Charts: f122fb70b19847fa5817d018b77d6c5a2296ab25
   CircleProgressView: 6b5b091d59dc5e5d2fda84e637a40498cdc39937
@@ -106,6 +128,7 @@ SPEC CHECKSUMS:
   JCore: 14706de2640b25fb77dbd02332696491407f37c9
   JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  libwebp: d7e0c95fe97245c97e08101eba10702ebb0f6101
   PagingKit: 01d82dd405fb9001a39d8293aa67e1b7789c701c
   RAMAnimatedTabBarController: 677d6f7ec7e88b1089486f4db49b0a5067e8ad1c
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
@@ -116,10 +139,10 @@ SPEC CHECKSUMS:
   SHFullscreenPopGestureSwift: 96c20749695c8fbf14a29feb5ece469d7a909a41
   SkeletonView: 60d6ce7edb0cb4c7758db33c74add50392b3c475
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
   WKWebViewJavascriptBridge: 8da532409bc489ba2c0a69cf38e5d1cd49e3d5e4
 
-PODFILE CHECKSUM: 3df4847afe9d59a701b9f0ba9f3a5e1287eda7f0
+PODFILE CHECKSUM: b1d8830bb079323b90489beca1bbd06a6c49e645
 
 COCOAPODS: 1.6.0.beta.1

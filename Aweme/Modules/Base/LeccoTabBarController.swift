@@ -12,6 +12,8 @@ import SnapKit
 class LeccoTabBarController: UIViewController {
     var viewControllers:[UINavigationController] = []
     var leccoTabbar:Segmentio!
+    //点击拍照按钮时，selectedindex 恢复到原有index
+    private var oldSegmentIndex:Int = -1
     private var selectedController:UINavigationController?
     private var selectedIndex:Int = -1 {
         didSet {
@@ -32,17 +34,19 @@ class LeccoTabBarController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.k161824
         self.config()
-        self.leccoTabbar.valueDidChange = { segmentio, segmentIndex in
+        self.leccoTabbar.valueDidChange = { [weak self] (segmentio, segmentIndex) in
             guard segmentIndex != 2 else {
-                self.present(LeccoAddViewController(), animated: true, completion: {
+                self?.present(LeccoAddViewController(), animated: true, completion: {
+                    self?.leccoTabbar.selectedSegmentioIndex = self?.oldSegmentIndex ?? -1
                 })
                 return
             }
+            self?.oldSegmentIndex = segmentIndex
             guard segmentIndex >= 3 else {
-                self.selectedIndex = segmentIndex
+                self?.selectedIndex = segmentIndex
                 return
             }
-            self.selectedIndex = segmentIndex-1
+            self?.selectedIndex = segmentIndex-1
             //
         }
          self.leccoTabbar.selectedSegmentioIndex = 0

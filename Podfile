@@ -4,21 +4,14 @@
 target 'Aweme' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-
  # 布局
     pod 'SnapKit'
     # 颜色
     pod 'DynamicColor'
     # 颜色渐变
     pod 'Hue'
-    # font,image,color(assets named colors),xib
-#    pod 'R.swift'
     # banner
     pod 'FSPagerView'
-    # 网络请求
-    pod 'Alamofire-SwiftyJSON'
-    # json 转 model
-    pod 'HandyJSON'
     # 上下拉刷新
 #    pod 'ESPullToRefresh'
     # js 交互
@@ -57,8 +50,24 @@ target 'Aweme' do
     
     pod 'EVGPUImage2', '~> 0.2.0'
     
+    #github sshiqiao
+    pod 'Alamofire'
+    pod 'HandyJSON'
+    pod 'Starscream'
+    pod 'libwebp'
+    
     # 第三方
     pod 'Bugly'
     pod 'JPush'
 
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 9.0
+                config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+            end
+        end
+    end
 end

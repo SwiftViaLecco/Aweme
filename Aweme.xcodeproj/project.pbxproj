@@ -34,6 +34,19 @@
 		9BCBFC6721A568880029791C /* LeccoBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC6621A568880029791C /* LeccoBaseViewController.swift */; };
 		9BCBFC6A21A568D70029791C /* LeccoNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC6921A568D70029791C /* LeccoNavigationController.swift */; };
 		9BCBFC6C21A5697F0029791C /* LeccoNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC6B21A5697F0029791C /* LeccoNavigationBar.swift */; };
+		9BCBFC6F21A651C70029791C /* LeccoVideoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC6E21A651C70029791C /* LeccoVideoListController.swift */; };
+		9BCBFC7121A652820029791C /* LeccoBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC7021A652820029791C /* LeccoBaseModel.swift */; };
+		9BCBFC7421A652E40029791C /* LeccoAwemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC7321A652E40029791C /* LeccoAwemeModel.swift */; };
+		9BCBFC7621A6541B0029791C /* LeccoUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC7521A6541B0029791C /* LeccoUserModel.swift */; };
+		9BCBFC7821A6544D0029791C /* LeccoMusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC7721A6544D0029791C /* LeccoMusicModel.swift */; };
+		9BCBFC7A21A657740029791C /* LeccoVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC7921A657740029791C /* LeccoVideoModel.swift */; };
+		9BCBFC7C21A657A10029791C /* LeccoGroupChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC7B21A657A10029791C /* LeccoGroupChatModel.swift */; };
+		9BCBFC7E21A657B10029791C /* LeccoVisitorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC7D21A657B10029791C /* LeccoVisitorModel.swift */; };
+		9BCBFC8021A657C10029791C /* LeccoPictureInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC7F21A657C10029791C /* LeccoPictureInfoModel.swift */; };
+		9BCBFC8221A657CF0029791C /* LeccoCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC8121A657CF0029791C /* LeccoCommentModel.swift */; };
+		9BCBFC8421A65A550029791C /* LeccoString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC8321A65A550029791C /* LeccoString.swift */; };
+		9BCBFC8621A65ADD0029791C /* LeccoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC8521A65ADD0029791C /* LeccoData.swift */; };
+		9BCBFC8921A65B4D0029791C /* LeccoTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFC8821A65B4D0029791C /* LeccoTimeCell.swift */; };
 		9BD727A6219EA2B400C0C778 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD727A5219EA2B400C0C778 /* AppDelegate.swift */; };
 		9BD727AD219EA2B700C0C778 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD727AC219EA2B700C0C778 /* Assets.xcassets */; };
 		9BD727B0219EA2B700C0C778 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD727AE219EA2B700C0C778 /* LaunchScreen.storyboard */; };
@@ -81,6 +94,19 @@
 		9BCBFC6621A568880029791C /* LeccoBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoBaseViewController.swift; sourceTree = "<group>"; };
 		9BCBFC6921A568D70029791C /* LeccoNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoNavigationController.swift; sourceTree = "<group>"; };
 		9BCBFC6B21A5697F0029791C /* LeccoNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoNavigationBar.swift; sourceTree = "<group>"; };
+		9BCBFC6E21A651C70029791C /* LeccoVideoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoVideoListController.swift; sourceTree = "<group>"; };
+		9BCBFC7021A652820029791C /* LeccoBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoBaseModel.swift; sourceTree = "<group>"; };
+		9BCBFC7321A652E40029791C /* LeccoAwemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoAwemeModel.swift; sourceTree = "<group>"; };
+		9BCBFC7521A6541B0029791C /* LeccoUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoUserModel.swift; sourceTree = "<group>"; };
+		9BCBFC7721A6544D0029791C /* LeccoMusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoMusicModel.swift; sourceTree = "<group>"; };
+		9BCBFC7921A657740029791C /* LeccoVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoVideoModel.swift; sourceTree = "<group>"; };
+		9BCBFC7B21A657A10029791C /* LeccoGroupChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoGroupChatModel.swift; sourceTree = "<group>"; };
+		9BCBFC7D21A657B10029791C /* LeccoVisitorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoVisitorModel.swift; sourceTree = "<group>"; };
+		9BCBFC7F21A657C10029791C /* LeccoPictureInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoPictureInfoModel.swift; sourceTree = "<group>"; };
+		9BCBFC8121A657CF0029791C /* LeccoCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoCommentModel.swift; sourceTree = "<group>"; };
+		9BCBFC8321A65A550029791C /* LeccoString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoString.swift; sourceTree = "<group>"; };
+		9BCBFC8521A65ADD0029791C /* LeccoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoData.swift; sourceTree = "<group>"; };
+		9BCBFC8821A65B4D0029791C /* LeccoTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoTimeCell.swift; sourceTree = "<group>"; };
 		9BD727A2219EA2B400C0C778 /* Aweme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aweme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD727A5219EA2B400C0C778 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD727AC219EA2B700C0C778 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -238,8 +264,41 @@
 				9BD727DF219EA60200C0C778 /* LeccoTabBarController.swift */,
 				9BCBFC6921A568D70029791C /* LeccoNavigationController.swift */,
 				9BCBFC6B21A5697F0029791C /* LeccoNavigationBar.swift */,
+				9BCBFC7021A652820029791C /* LeccoBaseModel.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		9BCBFC6D21A651620029791C /* LeccoVideoControllerModule */ = {
+			isa = PBXGroup;
+			children = (
+				9BCBFC7221A652AA0029791C /* Model */,
+				9BCBFC6E21A651C70029791C /* LeccoVideoListController.swift */,
+			);
+			path = LeccoVideoControllerModule;
+			sourceTree = "<group>";
+		};
+		9BCBFC7221A652AA0029791C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BCBFC7321A652E40029791C /* LeccoAwemeModel.swift */,
+				9BCBFC7521A6541B0029791C /* LeccoUserModel.swift */,
+				9BCBFC7721A6544D0029791C /* LeccoMusicModel.swift */,
+				9BCBFC7921A657740029791C /* LeccoVideoModel.swift */,
+				9BCBFC7B21A657A10029791C /* LeccoGroupChatModel.swift */,
+				9BCBFC7D21A657B10029791C /* LeccoVisitorModel.swift */,
+				9BCBFC7F21A657C10029791C /* LeccoPictureInfoModel.swift */,
+				9BCBFC8121A657CF0029791C /* LeccoCommentModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9BCBFC8721A65B260029791C /* GroupChatModule */ = {
+			isa = PBXGroup;
+			children = (
+				9BCBFC8821A65B4D0029791C /* LeccoTimeCell.swift */,
+			);
+			path = GroupChatModule;
 			sourceTree = "<group>";
 		};
 		9BD72799219EA2B400C0C778 = {
@@ -275,6 +334,8 @@
 		9BD727CF219EA4F700C0C778 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9BCBFC8721A65B260029791C /* GroupChatModule */,
+				9BCBFC6D21A651620029791C /* LeccoVideoControllerModule */,
 				9BCBFC6821A568B70029791C /* Base */,
 				9B79792B21A54F7300B46F50 /* MineModule */,
 				9B79792A21A54F6C00B46F50 /* MsgModule */,
@@ -296,6 +357,8 @@
 				9BD727DA219EA5F000C0C778 /* LeccoColor.swift */,
 				9BD727D9219EA5F000C0C778 /* LeccoFont.swift */,
 				9B79792621A544E300B46F50 /* LeccoImage.swift */,
+				9BCBFC8321A65A550029791C /* LeccoString.swift */,
+				9BCBFC8521A65ADD0029791C /* LeccoData.swift */,
 			);
 			name = Category;
 			path = "../New Group/Category";
@@ -435,7 +498,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Aweme/Pods-Aweme-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/CircleProgressView/CircleProgressView.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicColor/DynamicColor.framework",
@@ -455,16 +517,16 @@
 				"${BUILT_PRODUCTS_DIR}/Segmentio/Segmentio.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework",
 				"${BUILT_PRODUCTS_DIR}/WKWebViewJavascriptBridge/WKWebViewJavascriptBridge.framework",
+				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CircleProgressView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicColor.framework",
@@ -484,9 +546,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Segmentio.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLNavigator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WKWebViewJavascriptBridge.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -503,9 +566,14 @@
 				62D483FB21A01E100030507B /* LeccoShootButton.swift in Sources */,
 				9B79793621A5514000B46F50 /* LeccoMineController.swift in Sources */,
 				9B79793C21A5518000B46F50 /* LeccoFollowController.swift in Sources */,
+				9BCBFC7121A652820029791C /* LeccoBaseModel.swift in Sources */,
 				9BD727DE219EA5F800C0C778 /* LeccoConst.swift in Sources */,
 				9B50651E21A28C8C00403C85 /* NumTypes+Conversion.swift in Sources */,
 				9B50652B21A2CE2400403C85 /* LeccoVideoMerge.swift in Sources */,
+				9BCBFC8021A657C10029791C /* LeccoPictureInfoModel.swift in Sources */,
+				9BCBFC7621A6541B0029791C /* LeccoUserModel.swift in Sources */,
+				9BCBFC8921A65B4D0029791C /* LeccoTimeCell.swift in Sources */,
+				9BCBFC8421A65A550029791C /* LeccoString.swift in Sources */,
 				9BD727E3219EA99C00C0C778 /* LeccoAddViewController.swift in Sources */,
 				9B50651C21A28C8C00403C85 /* ObjC.swift in Sources */,
 				9BCBFC6721A568880029791C /* LeccoBaseViewController.swift in Sources */,
@@ -513,7 +581,10 @@
 				9BD727F2219EB48D00C0C778 /* LeccoProgressView.swift in Sources */,
 				9B50651321A28C6100403C85 /* RosyWriterOpenCVRenderer.swift in Sources */,
 				9BD727E0219EA60300C0C778 /* LeccoTabBarController.swift in Sources */,
+				9BCBFC7421A652E40029791C /* LeccoAwemeModel.swift in Sources */,
+				9BCBFC7C21A657A10029791C /* LeccoGroupChatModel.swift in Sources */,
 				9BD727EC219EAC6D00C0C778 /* LeccoFunctionButton.swift in Sources */,
+				9BCBFC8621A65ADD0029791C /* LeccoData.swift in Sources */,
 				9B50652221A28CB700403C85 /* OpenGLPixelBufferView.swift in Sources */,
 				9BCBFC6C21A5697F0029791C /* LeccoNavigationBar.swift in Sources */,
 				9B50651521A28C6100403C85 /* RosyWriterCIFilterRenderer.swift in Sources */,
@@ -526,16 +597,21 @@
 				9BD727EE219EB21C00C0C778 /* LeccoCloseButton.swift in Sources */,
 				9B50652421A28CDB00403C85 /* ShaderUtilities.swift in Sources */,
 				9B50651D21A28C8C00403C85 /* FourCharCode+StringLiteralConvertible.swift in Sources */,
+				9BCBFC6F21A651C70029791C /* LeccoVideoListController.swift in Sources */,
 				9B79793821A5515500B46F50 /* LeccoMsgController.swift in Sources */,
 				9BD727DB219EA5F000C0C778 /* LeccoFont.swift in Sources */,
 				9B79790721A500FA00B46F50 /* LeccoRecordSegmentView.swift in Sources */,
+				9BCBFC8221A657CF0029791C /* LeccoCommentModel.swift in Sources */,
 				9B50653121A3D3DB00403C85 /* LeccoEditVideoController.swift in Sources */,
 				9B50652121A28CB700403C85 /* MovieRecorder.swift in Sources */,
 				9B50651221A28C6100403C85 /* RosyWriterRenderer.swift in Sources */,
 				9B50651421A28C6100403C85 /* RosyWriterCPURenderer.swift in Sources */,
+				9BCBFC7E21A657B10029791C /* LeccoVisitorModel.swift in Sources */,
 				9B50651621A28C6100403C85 /* RosyWriterOpenGLRenderer.swift in Sources */,
 				9BD727A6219EA2B400C0C778 /* AppDelegate.swift in Sources */,
 				9B50652E21A3CFCF00403C85 /* LeccoPlayerView.swift in Sources */,
+				9BCBFC7821A6544D0029791C /* LeccoMusicModel.swift in Sources */,
+				9BCBFC7A21A657740029791C /* LeccoVideoModel.swift in Sources */,
 				9BD727F0219EB34C00C0C778 /* LeccoRollButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

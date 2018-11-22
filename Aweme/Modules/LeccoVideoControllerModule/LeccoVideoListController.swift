@@ -1,30 +1,39 @@
 //
-//  LeccoHomeController.swift
+//  LeccoVideoListController.swift
 //  Aweme
-//
-//  Created by lecco on 2018/11/21.
+//  视频列表
+//  Created by lecco on 2018/11/22.
 //  Copyright © 2018 lecco. All rights reserved.
 //
 
 import UIKit
 
+enum LeccoAwemeType {
+    case work
+    case favorite
+    case recommand
+}
 
-class LeccoHomeController: LeccoVideoListController {
+class LeccoVideoListController: LeccoBaseViewController {
+
+    var tableView:UITableView?
+    @objc dynamic var currentIndex:Int = 0
+    var isCurPlayerPause:Bool = false
+    var pageIndex:Int = 0
+    var pageSize:Int = 21
+    var awemeType:LeccoAwemeType?
+    var uid:String?
+    
+    var data = [LeccoAwemeModel]()
+    var awemes = [LeccoAwemeModel]()
+//    var loadMore:LoadMoreControl?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.leccoNavigationBarIsHidden = true
+
         // Do any additional setup after loading the view.
     }
     
-    //状态栏
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
 
     /*
     // MARK: - Navigation
