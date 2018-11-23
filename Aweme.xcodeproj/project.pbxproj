@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		62D483FB21A01E100030507B /* LeccoShootButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D483FA21A01E100030507B /* LeccoShootButton.swift */; };
 		9B01904A21A68BD200D6619F /* LeccoVideoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01904921A68BD200D6619F /* LeccoVideoListCell.swift */; };
+		9B372E3621A7CB8500F55D65 /* LeccoBaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B372E3521A7CB8500F55D65 /* LeccoBaseRequest.swift */; };
+		9B372E3A21A7CBFC00F55D65 /* LeccoBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B372E3921A7CBFC00F55D65 /* LeccoBaseResponse.swift */; };
+		9B372E3D21A7CC8200F55D65 /* LeccoVideoListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B372E3C21A7CC8200F55D65 /* LeccoVideoListRequest.swift */; };
+		9B372E3F21A7CC9B00F55D65 /* LeccoVideoListResonse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B372E3E21A7CC9B00F55D65 /* LeccoVideoListResonse.swift */; };
+		9B372E4121A7CE5D00F55D65 /* LeccoNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B372E4021A7CE5D00F55D65 /* LeccoNetworkManager.swift */; };
+		9B372E4321A7CF2000F55D65 /* LeccoNetworkConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B372E4221A7CF2000F55D65 /* LeccoNetworkConst.swift */; };
 		9B38F61E21A699860091D82B /* LeccoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38F61D21A699860091D82B /* LeccoView.swift */; };
 		9B38F62421A69F080091D82B /* LeccoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38F62321A69F080091D82B /* LeccoPlayerView.swift */; };
 		9B38F62721A69F2F0091D82B /* LeccoPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B38F62621A69F2F0091D82B /* LeccoPlayerManager.swift */; };
@@ -78,6 +84,12 @@
 		62D483FA21A01E100030507B /* LeccoShootButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoShootButton.swift; sourceTree = "<group>"; };
 		906D6783D1AE5327065173FF /* Pods-Aweme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aweme.debug.xcconfig"; path = "Target Support Files/Pods-Aweme/Pods-Aweme.debug.xcconfig"; sourceTree = "<group>"; };
 		9B01904921A68BD200D6619F /* LeccoVideoListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeccoVideoListCell.swift; sourceTree = "<group>"; };
+		9B372E3521A7CB8500F55D65 /* LeccoBaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoBaseRequest.swift; sourceTree = "<group>"; };
+		9B372E3921A7CBFC00F55D65 /* LeccoBaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoBaseResponse.swift; sourceTree = "<group>"; };
+		9B372E3C21A7CC8200F55D65 /* LeccoVideoListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoVideoListRequest.swift; sourceTree = "<group>"; };
+		9B372E3E21A7CC9B00F55D65 /* LeccoVideoListResonse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoVideoListResonse.swift; sourceTree = "<group>"; };
+		9B372E4021A7CE5D00F55D65 /* LeccoNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoNetworkManager.swift; sourceTree = "<group>"; };
+		9B372E4221A7CF2000F55D65 /* LeccoNetworkConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoNetworkConst.swift; sourceTree = "<group>"; };
 		9B38F61D21A699860091D82B /* LeccoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeccoView.swift; sourceTree = "<group>"; };
 		9B38F62321A69F080091D82B /* LeccoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoPlayerView.swift; sourceTree = "<group>"; };
 		9B38F62621A69F2F0091D82B /* LeccoPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoPlayerManager.swift; sourceTree = "<group>"; };
@@ -180,6 +192,42 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9B372E3421A7CB3600F55D65 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9B372E3821A7CBC100F55D65 /* HttpResponse */,
+				9B372E3721A7CBB500F55D65 /* httpRequest */,
+				9B372E4021A7CE5D00F55D65 /* LeccoNetworkManager.swift */,
+				9B372E4221A7CF2000F55D65 /* LeccoNetworkConst.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9B372E3721A7CBB500F55D65 /* httpRequest */ = {
+			isa = PBXGroup;
+			children = (
+				9B372E3521A7CB8500F55D65 /* LeccoBaseRequest.swift */,
+			);
+			path = httpRequest;
+			sourceTree = "<group>";
+		};
+		9B372E3821A7CBC100F55D65 /* HttpResponse */ = {
+			isa = PBXGroup;
+			children = (
+				9B372E3921A7CBFC00F55D65 /* LeccoBaseResponse.swift */,
+			);
+			path = HttpResponse;
+			sourceTree = "<group>";
+		};
+		9B372E3B21A7CC4100F55D65 /* NetworkIO */ = {
+			isa = PBXGroup;
+			children = (
+				9B372E3C21A7CC8200F55D65 /* LeccoVideoListRequest.swift */,
+				9B372E3E21A7CC9B00F55D65 /* LeccoVideoListResonse.swift */,
+			);
+			path = NetworkIO;
+			sourceTree = "<group>";
+		};
 		9B38F62121A69E260091D82B /* VideoHandleModules */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +265,7 @@
 		9B38F62821A6A0F40091D82B /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				9B372E3421A7CB3600F55D65 /* Network */,
 				9B38F62921A6A1010091D82B /* WebCache */,
 			);
 			path = Libs;
@@ -350,6 +399,7 @@
 		9BCBFC6D21A651620029791C /* LeccoVideoControllerModule */ = {
 			isa = PBXGroup;
 			children = (
+				9B372E3B21A7CC4100F55D65 /* NetworkIO */,
 				9B01904621A68B9800D6619F /* View */,
 				9BCBFC7221A652AA0029791C /* Model */,
 				9BCBFC6E21A651C70029791C /* LeccoVideoListController.swift */,
@@ -639,10 +689,13 @@
 				9B38F62E21A6A1130091D82B /* WebDownloader.swift in Sources */,
 				9B50651E21A28C8C00403C85 /* NumTypes+Conversion.swift in Sources */,
 				9B50652B21A2CE2400403C85 /* LeccoVideoMerge.swift in Sources */,
+				9B372E4321A7CF2000F55D65 /* LeccoNetworkConst.swift in Sources */,
 				9B38F63021A6A1130091D82B /* WebCacheManager.swift in Sources */,
 				9B38F62721A69F2F0091D82B /* LeccoPlayerManager.swift in Sources */,
 				9BCBFC8021A657C10029791C /* LeccoPictureInfoModel.swift in Sources */,
+				9B372E3F21A7CC9B00F55D65 /* LeccoVideoListResonse.swift in Sources */,
 				9BCBFC7621A6541B0029791C /* LeccoUserModel.swift in Sources */,
+				9B372E3D21A7CC8200F55D65 /* LeccoVideoListRequest.swift in Sources */,
 				9BCBFC8921A65B4D0029791C /* LeccoTimeCell.swift in Sources */,
 				9BCBFC8421A65A550029791C /* LeccoString.swift in Sources */,
 				9BD727E3219EA99C00C0C778 /* LeccoAddViewController.swift in Sources */,
@@ -652,6 +705,7 @@
 				9BCBFC6721A568880029791C /* LeccoBaseViewController.swift in Sources */,
 				9BD727DC219EA5F000C0C778 /* LeccoColor.swift in Sources */,
 				9BD727F2219EB48D00C0C778 /* LeccoProgressView.swift in Sources */,
+				9B372E3A21A7CBFC00F55D65 /* LeccoBaseResponse.swift in Sources */,
 				9B50651321A28C6100403C85 /* RosyWriterOpenCVRenderer.swift in Sources */,
 				9BD727E0219EA60300C0C778 /* LeccoTabBarController.swift in Sources */,
 				9BCBFC7421A652E40029791C /* LeccoAwemeModel.swift in Sources */,
@@ -670,6 +724,7 @@
 				9BD727E5219EAA0B00C0C778 /* LeccoAddFunctionView.swift in Sources */,
 				9B79792721A544E300B46F50 /* LeccoImage.swift in Sources */,
 				9BD727EE219EB21C00C0C778 /* LeccoCloseButton.swift in Sources */,
+				9B372E4121A7CE5D00F55D65 /* LeccoNetworkManager.swift in Sources */,
 				9B50652421A28CDB00403C85 /* ShaderUtilities.swift in Sources */,
 				9B50651D21A28C8C00403C85 /* FourCharCode+StringLiteralConvertible.swift in Sources */,
 				9BCBFC6F21A651C70029791C /* LeccoVideoListController.swift in Sources */,
@@ -677,6 +732,7 @@
 				9BD727DB219EA5F000C0C778 /* LeccoFont.swift in Sources */,
 				9B79790721A500FA00B46F50 /* LeccoRecordSegmentView.swift in Sources */,
 				9BCBFC8221A657CF0029791C /* LeccoCommentModel.swift in Sources */,
+				9B372E3621A7CB8500F55D65 /* LeccoBaseRequest.swift in Sources */,
 				9B50653121A3D3DB00403C85 /* LeccoEditVideoController.swift in Sources */,
 				9B50652121A28CB700403C85 /* MovieRecorder.swift in Sources */,
 				9B50651221A28C6100403C85 /* RosyWriterRenderer.swift in Sources */,

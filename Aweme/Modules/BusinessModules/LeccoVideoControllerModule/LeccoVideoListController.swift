@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum LeccoAwemeType {
+enum LeccoVideoListControllerType {
     case work
     case favorite
     case recommand
@@ -25,13 +25,13 @@ class LeccoVideoListController: LeccoBaseViewController {
     var isCurPlayerPause:Bool = false
     var pageIndex:Int = 0
     var pageSize:Int = 21
-    var awemeType:LeccoAwemeType?
+    var awemeType:LeccoVideoListControllerType?
     var uid:String?
     
     var data = [LeccoAwemeModel]()
     var awemes = [LeccoAwemeModel]()
 //    var loadMore:LoadMoreControl?
-    init(data:[LeccoAwemeModel], currentIndex:Int, page:Int, size:Int, awemeType:LeccoAwemeType, uid:String) {
+    init(data:[LeccoAwemeModel], currentIndex:Int, page:Int, size:Int, awemeType:LeccoVideoListControllerType, uid:String) {
         super.init(nibName: nil, bundle: nil)
         self.currentIndex = currentIndex
         self.pageIndex = page
