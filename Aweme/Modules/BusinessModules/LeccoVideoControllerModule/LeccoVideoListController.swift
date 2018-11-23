@@ -30,7 +30,7 @@ class LeccoVideoListController: LeccoBaseViewController {
     
     var data = [LeccoAwemeModel]()
     var awemes = [LeccoAwemeModel]()
-//    var loadMore:LoadMoreControl?
+    var loadMore:LeccoLoadMoreControl?
     init(data:[LeccoAwemeModel], currentIndex:Int, page:Int, size:Int, awemeType:LeccoVideoListControllerType, uid:String) {
         super.init(nibName: nil, bundle: nil)
         self.currentIndex = currentIndex
@@ -69,20 +69,86 @@ class LeccoVideoListController: LeccoBaseViewController {
             self.automaticallyAdjustsScrollViewInsets = false
         }
         tableView?.register(LeccoVideoListCell.classForCoder(), forCellReuseIdentifier: LeccoVideoListCell.leccoIdentifier())
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            self.view.addSubview(self.tableView!)
-            self.data = self.awemes
-            self.tableView?.reloadData()
-            let curIndexPath = IndexPath.init(row: self.currentIndex, section: 0)
-            self.tableView?.scrollToRow(at: curIndexPath, at: UITableView.ScrollPosition.middle, animated: false)
-            self.addObserver(self, forKeyPath: "currentIndex", options: [.initial, .new], context: nil)
+        loadMore = LeccoLoadMoreControl(frame: CGRect.init(x: 0, y: 100, width: kScreenWitdh, height: 50), surplusCount: 10)
+        loadMore?.onLoad = {[weak self] in
+            self?.loadData(page: self?.pageIndex ?? 0)
+        }
+        tableView?.addSubview(loadMore!)
+        
+        self.view.addSubview(self.tableView!)
+        self.loadData(page: 0)
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+//            self.view.addSubview(self.tableView!)
+//            self.data = self.awemes
+//            self.tableView?.reloadData()
+//            let curIndexPath = IndexPath(row: self.currentIndex, section: 0)
+//            self.tableView?.scrollToRow(at: curIndexPath, at: UITableView.ScrollPosition.middle, animated: false)
+//            self.addObserver(self, forKeyPath: "currentIndex", options: [.initial, .new], context: nil)
+//        }
+    }
+}
+
+extension LeccoVideoListController {
+    
+    func loadData(page:Int, _ size:Int = 21) {
+        if awemeType == .recommand {
+            LeccoVideoListRequest.findPostAwemesPaged(uid: uid ?? "", page: page, size, success: {[weak self] data in
+                if let response = data as? LeccoVideoListResonse {
+                    let array = response.data
+                    self?.pageIndex += 1
+                    
+                    self?.tableView?.beginUpdates()
+                    self?.data += array
+                    var indexPaths = [IndexPath]()
+                    for row in ((self?.data.count ?? 0) - array.count)..<(self?.data.count ?? 0) {
+                        indexPaths.append(IndexPath.init(row: row, section: 0))
+                    }
+                    self?.tableView?.insertRows(at: indexPaths, with: .none)
+                    self?.tableView?.endUpdates()
+                    
+                    self?.loadMore?.endLoading()
+                    if response.has_more == 0 {
+                        self?.loadMore?.loadingAll()
+                    }
+                }
+                }, failure: { error in
+                    self.loadMore?.loadingFailed()
+            })
+        } else {
+            LeccoVideoListRequest.findFavoriteAwemesPaged(uid: uid ?? "", page: page, size, success: {[weak self] data in
+                if let response = data as? LeccoVideoListResonse {
+                    let array = response.data
+                    self?.pageIndex += 1
+                    
+                    self?.tableView?.beginUpdates()
+                    self?.data += array
+                    var indexPaths = [IndexPath]()
+                    for row in ((self?.data.count ?? 0) - array.count)..<(self?.data.count ?? 0) {
+                        indexPaths.append(IndexPath.init(row: row, section: 0))
+                    }
+                    self?.tableView?.insertRows(at: indexPaths, with: .none)
+                    self?.tableView?.endUpdates()
+                    
+                    self?.loadMore?.endLoading()
+                    if response.has_more == 0 {
+                        self?.loadMore?.loadingAll()
+                    }
+                }
+                }, failure: { error in
+                    self.loadMore?.loadingFailed()
+            })
         }
     }
 }
 
 extension LeccoVideoListController:UITableViewDelegate,UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -109,7 +175,7 @@ extension LeccoVideoListController:UIScrollViewDelegate {
                 self.currentIndex -= 1
             }
             UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseOut, animations: {
-                self.tableView?.scrollToRow(at: IndexPath.init(row: self.currentIndex, section: 0), at: UITableView.ScrollPosition.top, animated: false)
+                self.tableView?.scrollToRow(at: IndexPath(row: self.currentIndex, section: 0), at: UITableView.ScrollPosition.top, animated: false)
             }, completion: { finished in
                 scrollView.panGestureRecognizer.isEnabled = true
             })

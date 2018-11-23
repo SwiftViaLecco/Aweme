@@ -100,7 +100,7 @@ class LeccoTabBarController: UIViewController {
         self.leccoTabbar.snp.makeConstraints { (make) in
             make.left.bottom.right.equalTo(self.view).offset(0)
             make.height.equalTo(kTabbarRealHeight)
-            make.bottom.equalTo(self.view).offset(-kTabbarSafeHight)
+            make.bottom.equalTo(self.view).offset(-kSafeAreaBottomHeight)
         }
         
         //controller

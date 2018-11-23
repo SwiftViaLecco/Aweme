@@ -39,6 +39,13 @@
 		9B50652B21A2CE2400403C85 /* LeccoVideoMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B50652A21A2CE2300403C85 /* LeccoVideoMerge.swift */; };
 		9B50652E21A3CFCF00403C85 /* LeccoEditPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B50652D21A3CFCF00403C85 /* LeccoEditPlayerView.swift */; };
 		9B50653121A3D3DB00403C85 /* LeccoEditVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B50653021A3D3DB00403C85 /* LeccoEditVideoController.swift */; };
+		9B5415E821A806E30014F0C6 /* favorites.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B5415E221A806E30014F0C6 /* favorites.json */; };
+		9B5415E921A806E30014F0C6 /* groupchats.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B5415E321A806E30014F0C6 /* groupchats.json */; };
+		9B5415EA21A806E30014F0C6 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B5415E421A806E30014F0C6 /* user.json */; };
+		9B5415EB21A806E30014F0C6 /* comments.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B5415E521A806E30014F0C6 /* comments.json */; };
+		9B5415EC21A806E30014F0C6 /* awemes.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B5415E621A806E30014F0C6 /* awemes.json */; };
+		9B5415ED21A806E30014F0C6 /* emotion.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B5415E721A806E30014F0C6 /* emotion.json */; };
+		9B5415F021A808830014F0C6 /* LeccoLoadMoreControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5415EF21A808830014F0C6 /* LeccoLoadMoreControl.swift */; };
 		9B79790721A500FA00B46F50 /* LeccoRecordSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79790621A500FA00B46F50 /* LeccoRecordSegmentView.swift */; };
 		9B79792721A544E300B46F50 /* LeccoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79792621A544E300B46F50 /* LeccoImage.swift */; };
 		9B79793621A5514000B46F50 /* LeccoMineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B79793521A5514000B46F50 /* LeccoMineController.swift */; };
@@ -115,6 +122,13 @@
 		9B50652A21A2CE2300403C85 /* LeccoVideoMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoVideoMerge.swift; sourceTree = "<group>"; };
 		9B50652D21A3CFCF00403C85 /* LeccoEditPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoEditPlayerView.swift; sourceTree = "<group>"; };
 		9B50653021A3D3DB00403C85 /* LeccoEditVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoEditVideoController.swift; sourceTree = "<group>"; };
+		9B5415E221A806E30014F0C6 /* favorites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favorites.json; sourceTree = "<group>"; };
+		9B5415E321A806E30014F0C6 /* groupchats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = groupchats.json; sourceTree = "<group>"; };
+		9B5415E421A806E30014F0C6 /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
+		9B5415E521A806E30014F0C6 /* comments.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = comments.json; sourceTree = "<group>"; };
+		9B5415E621A806E30014F0C6 /* awemes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awemes.json; sourceTree = "<group>"; };
+		9B5415E721A806E30014F0C6 /* emotion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emotion.json; sourceTree = "<group>"; };
+		9B5415EF21A808830014F0C6 /* LeccoLoadMoreControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoLoadMoreControl.swift; sourceTree = "<group>"; };
 		9B79790621A500FA00B46F50 /* LeccoRecordSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoRecordSegmentView.swift; sourceTree = "<group>"; };
 		9B79792621A544E300B46F50 /* LeccoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoImage.swift; sourceTree = "<group>"; };
 		9B79793521A5514000B46F50 /* LeccoMineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccoMineController.swift; sourceTree = "<group>"; };
@@ -195,6 +209,7 @@
 		9B372E3421A7CB3600F55D65 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				9B5415E121A806C60014F0C6 /* cacheJson */,
 				9B372E3821A7CBC100F55D65 /* HttpResponse */,
 				9B372E3721A7CBB500F55D65 /* httpRequest */,
 				9B372E4021A7CE5D00F55D65 /* LeccoNetworkManager.swift */,
@@ -265,6 +280,7 @@
 		9B38F62821A6A0F40091D82B /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				9B5415EE21A808440014F0C6 /* RefreshControl */,
 				9B372E3421A7CB3600F55D65 /* Network */,
 				9B38F62921A6A1010091D82B /* WebCache */,
 			);
@@ -350,6 +366,27 @@
 				9B50653021A3D3DB00403C85 /* LeccoEditVideoController.swift */,
 			);
 			path = EditVideoModule;
+			sourceTree = "<group>";
+		};
+		9B5415E121A806C60014F0C6 /* cacheJson */ = {
+			isa = PBXGroup;
+			children = (
+				9B5415E621A806E30014F0C6 /* awemes.json */,
+				9B5415E521A806E30014F0C6 /* comments.json */,
+				9B5415E721A806E30014F0C6 /* emotion.json */,
+				9B5415E221A806E30014F0C6 /* favorites.json */,
+				9B5415E321A806E30014F0C6 /* groupchats.json */,
+				9B5415E421A806E30014F0C6 /* user.json */,
+			);
+			path = cacheJson;
+			sourceTree = "<group>";
+		};
+		9B5415EE21A808440014F0C6 /* RefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				9B5415EF21A808830014F0C6 /* LeccoLoadMoreControl.swift */,
+			);
+			path = RefreshControl;
 			sourceTree = "<group>";
 		};
 		9B79792821A54F5000B46F50 /* HomeModule */ = {
@@ -581,10 +618,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B5415EC21A806E30014F0C6 /* awemes.json in Resources */,
+				9B5415EA21A806E30014F0C6 /* user.json in Resources */,
 				9BD727B0219EA2B700C0C778 /* LaunchScreen.storyboard in Resources */,
+				9B5415E921A806E30014F0C6 /* groupchats.json in Resources */,
+				9B5415EB21A806E30014F0C6 /* comments.json in Resources */,
 				9BD727AD219EA2B700C0C778 /* Assets.xcassets in Resources */,
 				9B50652821A29C9800403C85 /* myFilter.fsh in Resources */,
 				9B50652921A29C9800403C85 /* myFilter.vsh in Resources */,
+				9B5415E821A806E30014F0C6 /* favorites.json in Resources */,
+				9B5415ED21A806E30014F0C6 /* emotion.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +741,7 @@
 				9B372E3D21A7CC8200F55D65 /* LeccoVideoListRequest.swift in Sources */,
 				9BCBFC8921A65B4D0029791C /* LeccoTimeCell.swift in Sources */,
 				9BCBFC8421A65A550029791C /* LeccoString.swift in Sources */,
+				9B5415F021A808830014F0C6 /* LeccoLoadMoreControl.swift in Sources */,
 				9BD727E3219EA99C00C0C778 /* LeccoAddViewController.swift in Sources */,
 				9B38F62421A69F080091D82B /* LeccoPlayerView.swift in Sources */,
 				9B01904A21A68BD200D6619F /* LeccoVideoListCell.swift in Sources */,

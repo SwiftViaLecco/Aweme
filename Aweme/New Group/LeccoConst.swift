@@ -39,9 +39,9 @@ let kScreenWitdh = UIScreen.main.bounds.width
 let kScreenHeight = UIScreen.main.bounds.height
 
 /// tabbar切换视图控制器高度
-let kTabbarSafeHight = kisAboveIPhoneX ? 34.0 : 0.0
-let kTabbarRealHeight = 49.0
-let kTabbarHeight = kTabbarSafeHight + kTabbarRealHeight
+let kSafeAreaBottomHeight:CGFloat = kisAboveIPhoneX ? 34.0 : 0.0
+let kTabbarRealHeight:CGFloat = 49.0
+let kTabbarHeight:CGFloat = kSafeAreaBottomHeight + kTabbarRealHeight
 /// 搜索视图高度
 
 /// 状态栏高度

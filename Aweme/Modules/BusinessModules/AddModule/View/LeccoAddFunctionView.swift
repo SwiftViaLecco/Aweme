@@ -169,7 +169,7 @@ class LeccoAddFunctionView: UIView {
         
         self.recordSegmentView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self).offset(0)
-            make.bottom.equalTo(self).offset(-(kTabbarSafeHight))
+            make.bottom.equalTo(self).offset(-(kSafeAreaBottomHeight))
             make.height.equalTo(50)
         }
         

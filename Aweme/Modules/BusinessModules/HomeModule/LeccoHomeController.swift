@@ -12,7 +12,7 @@ import UIKit
 class LeccoHomeController: LeccoVideoListController {
     
     init() {
-        super.init(data: [], currentIndex: 0, page: 0, size: 20, awemeType: .recommand, uid: "")
+        super.init(data: [], currentIndex: 0, page: 0, size: 20, awemeType: .recommand, uid: "97795069353")
     }
     
     required init?(coder aDecoder: NSCoder) {

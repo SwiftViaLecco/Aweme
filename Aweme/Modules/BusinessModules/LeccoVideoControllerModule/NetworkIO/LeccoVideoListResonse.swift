@@ -9,5 +9,5 @@
 import UIKit
 
 class LeccoVideoListResonse: LeccoBaseResponse {
-    var data = [LeccoVideoModel]()
+    var data = [LeccoAwemeModel]()
 }
