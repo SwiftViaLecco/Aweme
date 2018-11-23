@@ -149,10 +149,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Charts/Charts.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/CircleProgressView/CircleProgressView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DynamicColor/DynamicColor.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/EVGPUImage2/EVGPUImage2.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Hue/Hue.framework"
@@ -171,14 +168,10 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WKWebViewJavascriptBridge/WKWebViewJavascriptBridge.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Charts/Charts.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/CircleProgressView/CircleProgressView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DynamicColor/DynamicColor.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/EVGPUImage2/EVGPUImage2.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Hue/Hue.framework"
@@ -197,7 +190,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WKWebViewJavascriptBridge/WKWebViewJavascriptBridge.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

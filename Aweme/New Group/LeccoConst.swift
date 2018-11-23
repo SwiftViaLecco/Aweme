@@ -32,6 +32,7 @@ let kisIPhoneXSMax = (max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.
 let kisAboveIPhoneX = (max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.height) >= 812.0 ? true : false)
 
 // MARK: - 尺寸信息
+let kScreenFrame:CGRect = UIScreen.main.bounds
 /// 全屏宽度
 let kScreenWitdh = UIScreen.main.bounds.width
 /// 全屏高度，不含状态栏高度

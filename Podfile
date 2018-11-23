@@ -3,7 +3,7 @@
 
 target 'Aweme' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
+ use_frameworks!
  # 布局
     pod 'SnapKit'
     # 颜色
@@ -23,6 +23,7 @@ target 'Aweme' do
     # segment
     pod 'Segmentio'
     # rac
+    pod 'RxAtomic'
     pod 'RxSwift'
     pod 'RxCocoa'
     # web image
@@ -33,7 +34,7 @@ target 'Aweme' do
     # keyboardmanager
     pod 'IQKeyboardManagerSwift'
     # charts
-    pod 'Charts'
+#    pod 'Charts'
     # animations
     #pod 'Spring'
     # router
@@ -41,20 +42,19 @@ target 'Aweme' do
     # waiting cell
     pod 'SkeletonView'
     #
-    pod 'CircleProgressView'
+#    pod 'CircleProgressView'
     #
     pod 'SHFullscreenPopGestureSwift'
 
     pod 'RAMAnimatedTabBarController'
     pod 'Segmentio'
     
-    pod 'EVGPUImage2', '~> 0.2.0'
-    
+#    pod 'EVGPUImage2', '~> 0.2.0'
+
     #github sshiqiao
     pod 'Alamofire'
     pod 'HandyJSON'
     pod 'Starscream'
-    pod 'libwebp'
     
     # 第三方
     pod 'Bugly'
