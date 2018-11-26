@@ -69,7 +69,7 @@ class LeccoVideoListController: LeccoBaseViewController {
             self.automaticallyAdjustsScrollViewInsets = false
         }
         tableView?.register(LeccoVideoListCell.classForCoder(), forCellReuseIdentifier: LeccoVideoListCell.leccoIdentifier())
-        loadMore = LeccoLoadMoreControl(frame: CGRect.init(x: 0, y: 100, width: kScreenWitdh, height: 50), surplusCount: 10)
+        loadMore = LeccoLoadMoreControl(frame: CGRect(x: 0, y: 100, width: kScreenWitdh, height: 50), surplusCount: 10)
         loadMore?.onLoad = {[weak self] in
             self?.loadData(page: self?.pageIndex ?? 0)
         }
@@ -77,6 +77,7 @@ class LeccoVideoListController: LeccoBaseViewController {
         
         self.view.addSubview(self.tableView!)
         self.loadData(page: 0)
+        self.addObserver(self, forKeyPath: "currentIndex", options: [.initial, .new], context: nil)
 //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
 //            self.view.addSubview(self.tableView!)
 //            self.data = self.awemes
@@ -85,6 +86,11 @@ class LeccoVideoListController: LeccoBaseViewController {
 //            self.tableView?.scrollToRow(at: curIndexPath, at: UITableView.ScrollPosition.middle, animated: false)
 //            self.addObserver(self, forKeyPath: "currentIndex", options: [.initial, .new], context: nil)
 //        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        self.removeObserver(self, forKeyPath: "currentIndex")
     }
 }
 
@@ -156,8 +162,8 @@ extension LeccoVideoListController:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: LeccoVideoListCell.leccoIdentifier(), for: indexPath)
-        cell.backgroundColor = indexPath.row % 2 == 1 ? UIColor.red : UIColor.white
+        let cell = tableView.dequeueReusableCell(withIdentifier: LeccoVideoListCell.leccoIdentifier(), for: indexPath) as! LeccoVideoListCell
+        cell.initData(aweme: data[indexPath.row])
         return cell
     }
 
@@ -187,20 +193,20 @@ extension LeccoVideoListController {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if(keyPath == "currentIndex") {
-//            isCurPlayerPause = false
-//            weak var cell = tableView?.cellForRow(at: IndexPath.init(row: currentIndex, section: 0)) as? AwemeListCell
-//            if cell?.isPlayerReady ?? false {
-//                cell?.replay()
-//            } else {
-//                AVPlayerManager.shared().pauseAll()
-//                cell?.onPlayerReady = {[weak self] in
-//                    if let indexPath = self?.tableView?.indexPath(for: cell!) {
-//                        if !(self?.isCurPlayerPause ?? true) && indexPath.row == self?.currentIndex {
-//                            cell?.play()
-//                        }
-//                    }
-//                }
-//            }
+            isCurPlayerPause = false
+            weak var cell = tableView?.cellForRow(at: IndexPath(row: currentIndex, section: 0)) as? LeccoVideoListCell
+            if cell?.isPlayerReady ?? false {
+                cell?.replay()
+            } else {
+                LeccoPlayerManager.shared().pauseAll()
+                cell?.onPlayerReady = {[weak self] in
+                    if let indexPath = self?.tableView?.indexPath(for: cell!) {
+                        if !(self?.isCurPlayerPause ?? true) && indexPath.row == self?.currentIndex {
+                            cell?.play()
+                        }
+                    }
+                }
+            }
         }else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
