@@ -29,6 +29,10 @@ class LeccoEditPlayerView: UIView {
         NotificationCenter.default.addObserver(self, selector: #selector(self.playerItemDidPlayToEndTime(_:)), name: .AVPlayerItemDidPlayToEndTime, object: self.player.currentItem)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc internal func playerItemDidPlayToEndTime(_ aNotification: Notification) {
         self.player.pause()
         self.player.seek(to: CMTime.zero)

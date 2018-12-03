@@ -33,5 +33,6 @@ class LeccoEditVideoController: LeccoBaseViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
 
 }
